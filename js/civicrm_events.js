@@ -8,7 +8,7 @@
 			});
 		}
 		loadLocations();
-		console.log(locations);
+		// console.log(locations);
 
 		$("#calendarlocations .box_wrap input").on("click",function(){
 			locations = [];
@@ -33,10 +33,10 @@
 
 					var eventlocation = event.event_location;
 					eventlocation = eventlocation==='' || event.event_location===null ? '' : eventlocation;
-					console.log(eventlocation);
+					// console.log(eventlocation);
 					if ($.inArray(eventlocation, locations)<0) return false;
 
-					element.find('.fc-event-inner').prepend(
+					element.find('.fc-content').prepend(
 						'<span class="fc-multiple-add pull-right pointer hidden-print" title="Register participants"><i class="fa fa-plus-square-o"></i></span>'+
 						'<span class="fc-view-event pull-right pointer hidden-print" title="View event details"><i class="fa fa-share"></i></span>'
 						//+'<span class="fc-event-location '+ location_trim +' hidden">'+event.event_location+'</span>'
@@ -50,8 +50,8 @@
 					});
 
 
-
-					element.find('.fc-view-event').on('change',function(){
+					element.find('.fc-view-event').on('click',function(){
+						console.log(event.url);
 						document.location.href = event.url;
 					});
 				},
